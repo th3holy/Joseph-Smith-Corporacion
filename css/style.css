@@ -1,0 +1,67 @@
+
+
+/******************** "estilos generales" ********************/
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+/******************** "jumbotron" ********************/
+.logo{
+    display: block;
+    margin: auto;
+    height: 200px;
+    width: 700px;
+}
+.jumbotron{
+     background-image:  linear-gradient(
+      rgba(0, 0, 0, 0.3),
+      rgba(0, 0, 0, 0.3)
+    ),url(/media/img/fondo-libros.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-bottom: 0rem; 
+}
+/******************** "menu" ********************/
+.menu{
+-webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.75);
+box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.75);
+}
+/******************** "Biblioteca" ********************/
+.biblioteca{
+    padding: 30px;
+}
+.genero{
+    padding: 15px;
+}
+.nombre{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+.libros{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+}
+.libro{
+    width: 150px;
+    height: 200px;
+    border-radius: 15px;
+    padding: 15px;
+    background-color: red;
+    -webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.75);  
+    box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.75);  
+}
+
+.footer{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
