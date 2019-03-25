@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
       integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="slick/slick.css">
+    <link rel="stylesheet" href="slick/slick-theme.css">
     <link rel="stylesheet" href="css/style.css">
     <title>Joseph Smith Corporacíon</title>
   </head>
@@ -32,7 +34,7 @@
               <a class="nav-link" href="#">Inicio</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Libros Propios</a>
+              <a class="nav-link" href="catalogo.html">Libros Propios</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Libros Traducidos</a>
@@ -79,7 +81,7 @@
             <h2>Libros Propios</h2>
             <button type="button" class="btn btn-primary">Ver Mas</button>
           </div>
-          <div class="libros">
+          <div class="libros m-auto">
             <div class="libro"
               title="La Fe Precede Al Milagro " data-toggle="popover" data-trigger="hover" data-content="Some content"
             >
@@ -87,6 +89,8 @@
             <div class="libro"
             title="Header" data-toggle="popover" data-trigger="hover" data-content="Some content"
             >
+            </div>
+            <div class="libro" title="Header" data-toggle="popover" data-trigger="hover" data-content="Some content">
             </div>
             <div class="libro"
             title="Header" data-toggle="popover" data-trigger="hover" data-content="Some content">
@@ -106,6 +110,8 @@
             <button type="button" class="btn btn-primary">Ver Mas</button>
           </div>
           <div class="libros">
+            <div class="libro" title="Header" data-toggle="popover" data-trigger="hover" data-content="Some content">
+            </div>
             <div class="libro"
             title="Header" data-toggle="popover" data-trigger="hover" data-content="Some content">
             </div>
@@ -131,6 +137,8 @@
           <button type="button" class="btn btn-primary">Ver Mas</button>
         </div>
         <div class="libros">
+          <div class="libro" title="Header" data-toggle="popover" data-trigger="hover" data-content="Some content">
+          </div>
           <div class="libro"
           title="Header" data-toggle="popover" data-trigger="hover" data-content="Some content">
           </div>
@@ -155,8 +163,7 @@
           <button type="button" class="btn btn-primary">Ver Mas</button>
         </div>
         <div class="libros">
-          <div class="libro"
-          title="Header" data-toggle="popover" data-trigger="hover" data-content="Some content">
+          <div class="libro" title="Header" data-toggle="popover" data-trigger="hover" data-content="Some content">
           </div>
           <div class="libro"
           title="Header" data-toggle="popover" data-trigger="hover" data-content="Some content">
@@ -169,6 +176,11 @@
           </div>
           <div class="libro"
           title="Header" data-toggle="popover" data-trigger="hover" data-content="Some content">
+          </div>
+          <div class="libro"
+          title="Header" data-toggle="popover" data-trigger="hover" data-content="Some content">
+          </div>
+          <div class="libro" title="Header" data-toggle="popover" data-trigger="hover" data-content="Some content">
           </div>
         </div>
       </div>
@@ -181,17 +193,65 @@
     </div>
     <!----"/footer"---->
     <!-- Optional JavaScript -->
+     
       <script>
-        $(document).ready(function () {
-          $('[data-toggle="popover"]').popover();
-        });
+       
       </script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+       
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
           integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.0.1/jquery-migrate.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
           integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
           integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+          <script>
+          $(document).ready(function () {
+            $('[data-toggle="popover"]').popover();
+          });
+          </script>
+          <script src="slick/slick.js"></script>
+          <script type="text/javascript">
+            $(document).ready(function () {
+              $('.libros').slick({
+                dots: true,
+                infinite: true,
+                speed: 300,
+                slidesToShow: 5,
+                slidesToScroll: 3,
+                arrows: true,
+                responsive: [
+                  {
+                    breakpoint: 1024,
+                    settings: {
+                      slidesToShow: 3,
+                      slidesToScroll: 3,
+                      infinite: true,
+                      dots: true
+                    }
+                  },
+                  {
+                    breakpoint: 720,
+                    settings: {
+                      slidesToShow: 2,
+                      slidesToScroll: 1
+                    }
+                  },
+                  {
+                    breakpoint: 480,
+                    settings: {
+                      slidesToShow: 1,
+                      slidesToScroll: 1
+                    }
+                  }
+                  // You can unslick at a given breakpoint now by adding:
+                  // settings: "unslick"
+                  // instead of a settings object
+                ]
+              });
+            });
+          </script>
   </body>
 </html>

@@ -47,12 +47,13 @@ box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.75);
     justify-content: space-between;
     align-items: center;
     padding: 15px;
+    height: 300px;
 }
 .libro{
-    width: 150px;
+    width: 150px !important;
     height: 200px;
     border-radius: 15px;
-    padding: 15px;
+    padding: 10px;
     background-image: url(/media/img/d4583b81da55f3ac0cc8806a3d39f680.jpg);
     background-position: center;
     background-size: cover;
@@ -62,17 +63,58 @@ box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.75);
 }
 .libro:hover{
     transition: .2s;
-    transform: scale(1.1);
+    transform: scale(1.04);
 }
 .titulo{
-    display: none;
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+    font-size: 40px;
 }
-.titulo:hover{
-  display: inline;
+.font-book{
+    width: 200px;
+    height: auto;
+    border-radius: 15px;
 }
 .footer{
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  color:gray;
+}
+
+.book{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    margin: 20px;
+}
+.contenido{
+    margin: 30px;
+}
+@media (max-width: 800px) {
+ .logo{
+     width: 600px;
+ }
+}
+@media (max-width: 780px) {
+ .logo{
+     width: 500px;
+ }
+}
+@media (max-width: 540px) {
+ .logo{
+     width: 400px;
+ }
+}
+@media (max-width: 450px) {
+ .logo{
+     width: 300px;
+     
+ }
 }
