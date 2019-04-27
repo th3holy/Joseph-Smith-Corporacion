@@ -13,6 +13,9 @@
     height: 200px;
     width: 700px;
 }
+.logo-negro{
+    width: 250px;
+}
 .jumbotron{
      background-image:  linear-gradient(
       rgba(0, 0, 0, 0.3),
@@ -63,7 +66,7 @@ box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.75);
 }
 .libro:hover{
     transition: .2s;
-    transform: scale(1.04);
+    transform: scale(1.1);
 }
 .titulo{
     display: flex;
@@ -96,6 +99,10 @@ box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.75);
 }
 .contenido{
     margin: 30px;
+}
+.slick-list{
+    height: 250px;
+    padding: 15px 0;
 }
 @media (max-width: 800px) {
  .logo{

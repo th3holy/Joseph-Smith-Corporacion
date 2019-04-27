@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1461" height="415" viewBox="0 0 1461 415">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: #fff;
+      }
+
+      .cls-1 {
+        font-size: 200px;
+        font-family: RestianyScript, Restiany Script;
+      }
+
+      .cls-2 {
+        font-size: 80px;
+        font-family: Verdana-Bold, Verdana;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+      }
+
+      .cls-3 {
+        filter: url(#CORPORACION);
+      }
+
+      .cls-4 {
+        filter: url(#Joseph_Smith);
+      }
+    </style>
+    <filter id="Joseph_Smith" x="0" y="0" width="1461" height="415" filterUnits="userSpaceOnUse">
+      <feOffset dy="5" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.376"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="CORPORACION" x="576" y="269" width="856" height="115" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-2"/>
+      <feFlood/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="jscorpw" transform="translate(-75 -105)">
+    <g class="cls-4" transform="matrix(1, 0, 0, 1, 75, 105)">
+      <text id="Joseph_Smith-2" data-name="Joseph Smith" class="cls-1" transform="translate(10 219)"><tspan x="0" y="0">Joseph Smith</tspan></text>
+    </g>
+    <g class="cls-3" transform="matrix(1, 0, 0, 1, 75, 105)">
+      <text id="CORPORACION-2" data-name="CORPORACION" class="cls-2" transform="translate(585 355)"><tspan x="0" y="0">CORPORACION</tspan></text>
+    </g>
+  </g>
+</svg>
