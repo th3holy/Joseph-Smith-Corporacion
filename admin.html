@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="slick/slick.css">
+    <link rel="stylesheet" href="slick/slick-theme.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Panel de Administración - Joseph Smith Corporacíon</title>
+</head>
+
+<body>
+    <!----"jumbotron "---->
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <img class="logo" src="media/img/jscorpw.svg" alt="">
+        </div>
+    </div>
+    <!----"/jumbotron"---->
+    <!----"menu"---->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light menu">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+            aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse " id="navbarTogglerDemo01">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0 m-auto ">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="catalogo.html">Libros Propios</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Libros Traducidos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Ensayos Propios</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Articulos Traducidos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Otros</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="admin.html">Panel Admin</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!----"/menu"---->
+
+    <div class="container admin-panel">
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-start admin-header">
+            <div>
+                <p class="badge badge-primary mb-2">Panel de administración</p>
+                <h2 class="admin-title">Gestión de libros</h2>
+                <p class="text-muted">Agrega y administra libros propios y traducidos. La información se guarda en tu navegador (LocalStorage).</p>
+            </div>
+            <div class="text-md-right">
+                <span class="badge badge-info">Beta</span>
+            </div>
+        </div>
+
+        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <a class="nav-link active" id="propios-tab" data-toggle="pill" href="#propios" role="tab" aria-controls="propios"
+                    aria-selected="true">Libros propios</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="traducidos-tab" data-toggle="pill" href="#traducidos" role="tab" aria-controls="traducidos"
+                    aria-selected="false">Libros traducidos</a>
+            </li>
+        </ul>
+
+        <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show active" id="propios" role="tabpanel" aria-labelledby="propios-tab">
+                <div class="card admin-card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0">Agregar libro propio</h5>
+                        <small class="text-muted">Campos obligatorios marcados con *</small>
+                    </div>
+                    <div class="card-body">
+                        <form id="form-propio" data-type="propio" class="admin-form">
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="propio-title">Título *</label>
+                                    <input type="text" class="form-control" id="propio-title" required>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="propio-author">Autor *</label>
+                                    <input type="text" class="form-control" id="propio-author" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="propio-cover">URL de portada (opcional)</label>
+                                    <input type="url" class="form-control" id="propio-cover" placeholder="https://...">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="propio-lang">Idioma</label>
+                                    <input type="text" class="form-control" id="propio-lang" placeholder="Español">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="propio-description">Descripción</label>
+                                <textarea class="form-control" id="propio-description" rows="3" placeholder="Notas o resumen corto"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Guardar libro propio</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="admin-list" id="list-propios"></div>
+            </div>
+
+            <div class="tab-pane fade" id="traducidos" role="tabpanel" aria-labelledby="traducidos-tab">
+                <div class="card admin-card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0">Agregar libro traducido</h5>
+                        <small class="text-muted">Campos obligatorios marcados con *</small>
+                    </div>
+                    <div class="card-body">
+                        <form id="form-traducido" data-type="traducido" class="admin-form">
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="traducido-title">Título *</label>
+                                    <input type="text" class="form-control" id="traducido-title" required>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="traducido-author">Autor *</label>
+                                    <input type="text" class="form-control" id="traducido-author" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="traducido-cover">URL de portada (opcional)</label>
+                                    <input type="url" class="form-control" id="traducido-cover" placeholder="https://...">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="traducido-lang">Idioma original</label>
+                                    <input type="text" class="form-control" id="traducido-lang" placeholder="Inglés, Alemán, etc.">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="traducido-description">Descripción</label>
+                                <textarea class="form-control" id="traducido-description" rows="3" placeholder="Notas o resumen corto"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Guardar libro traducido</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="admin-list" id="list-traducidos"></div>
+            </div>
+        </div>
+    </div>
+
+    <!----"footer"---->
+    <div class="container footer">
+        <img class="logo-negro" src="media/img/jscorp.svg" alt="">
+        <h5>CorreoGenerico@algo.com</h5>
+    </div>
+    <!----"/footer"---->
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.0.1/jquery-migrate.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+    <script>
+        const STORAGE_KEYS = {
+            propio: 'jscorpLibrosPropios',
+            traducido: 'jscorpLibrosTraducidos'
+        };
+
+        const DEFAULT_COVER = 'media/img/d4583b81da55f3ac0cc8806a3d39f680.jpg';
+
+        const parseStorage = (key) => {
+            const raw = localStorage.getItem(key);
+            if (!raw) return [];
+            try {
+                const parsed = JSON.parse(raw);
+                return Array.isArray(parsed) ? parsed : [];
+            } catch (error) {
+                console.warn('No se pudo leer el almacenamiento para', key, error);
+                return [];
+            }
+        };
+
+        const saveStorage = (key, data) => {
+            localStorage.setItem(key, JSON.stringify(data));
+        };
+
+        const buildCard = (item, type) => {
+            const wrapper = document.createElement('div');
+            wrapper.className = 'card admin-item';
+
+            const body = document.createElement('div');
+            body.className = 'card-body d-flex align-items-start';
+
+            const cover = document.createElement('img');
+            cover.className = 'admin-cover mr-3';
+            cover.src = item.cover || DEFAULT_COVER;
+            cover.alt = item.title;
+
+            const content = document.createElement('div');
+            const title = document.createElement('h5');
+            title.className = 'card-title mb-1';
+            title.textContent = item.title;
+
+            const meta = document.createElement('p');
+            meta.className = 'text-muted small mb-2';
+            const details = [];
+            if (item.author) details.push(item.author);
+            if (item.language) details.push(item.language);
+            meta.textContent = details.join(' • ');
+
+            const desc = document.createElement('p');
+            desc.className = 'card-text admin-description';
+            desc.textContent = item.description || 'Sin descripción';
+
+            const actions = document.createElement('div');
+            actions.className = 'd-flex align-items-center';
+
+            const badge = document.createElement('span');
+            badge.className = 'badge badge-light mr-2';
+            badge.textContent = type === 'propio' ? 'Propio' : 'Traducido';
+
+            const deleteBtn = document.createElement('button');
+            deleteBtn.className = 'btn btn-sm btn-outline-danger';
+            deleteBtn.textContent = 'Eliminar';
+            deleteBtn.addEventListener('click', () => handleDelete(item.id, type));
+
+            actions.appendChild(badge);
+            actions.appendChild(deleteBtn);
+
+            content.appendChild(title);
+            if (details.length) content.appendChild(meta);
+            content.appendChild(desc);
+            content.appendChild(actions);
+
+            body.appendChild(cover);
+            body.appendChild(content);
+            wrapper.appendChild(body);
+
+            return wrapper;
+        };
+
+        const renderList = (type) => {
+            const container = document.getElementById(type === 'propio' ? 'list-propios' : 'list-traducidos');
+            const data = parseStorage(STORAGE_KEYS[type]);
+            container.innerHTML = '';
+
+            if (!data.length) {
+                const empty = document.createElement('p');
+                empty.className = 'text-muted';
+                empty.textContent = 'No hay registros aún.';
+                container.appendChild(empty);
+                return;
+            }
+
+            data.forEach((item) => {
+                const card = buildCard(item, type);
+                container.appendChild(card);
+            });
+        };
+
+        const handleSubmit = (event) => {
+            event.preventDefault();
+            const form = event.target;
+            const type = form.dataset.type;
+            const formData = new FormData(form);
+
+            const payload = {
+                id: crypto.randomUUID(),
+                title: formData.get(`${type}-title`).trim(),
+                author: formData.get(`${type}-author`).trim(),
+                cover: formData.get(`${type}-cover`).trim(),
+                language: formData.get(`${type}-lang`).trim(),
+                description: formData.get(`${type}-description`).trim()
+            };
+
+            if (!payload.title || !payload.author) {
+                alert('Título y autor son obligatorios.');
+                return;
+            }
+
+            const current = parseStorage(STORAGE_KEYS[type]);
+            saveStorage(STORAGE_KEYS[type], [payload, ...current]);
+            form.reset();
+            renderList(type);
+        };
+
+        const handleDelete = (id, type) => {
+            const current = parseStorage(STORAGE_KEYS[type]);
+            const filtered = current.filter((item) => item.id !== id);
+            saveStorage(STORAGE_KEYS[type], filtered);
+            renderList(type);
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('form-propio').addEventListener('submit', handleSubmit);
+            document.getElementById('form-traducido').addEventListener('submit', handleSubmit);
+            renderList('propio');
+            renderList('traducido');
+        });
+    </script>
+</body>
+
+</html>
